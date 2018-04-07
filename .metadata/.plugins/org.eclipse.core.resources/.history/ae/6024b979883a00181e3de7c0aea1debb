@@ -1,0 +1,36 @@
+package com.view.login;
+
+import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.shrmfrg.entities.TestUser;
+import com.shrmfrg.persistence.PersistenceService;
+
+@Controller
+public class LoginController {
+	
+	@Inject
+	private PersistenceService persitenceService;
+	
+	@RequestMapping(value="/login")
+	public String toLogin(){
+		TestUser tu = persitenceService.find(TestUser.class, 1);
+		
+		System.out.print(tu.getUserName());
+		System.out.println("Hello!!! /Login" );
+		return "/login/login";
+	}
+
+	public PersistenceService getPersitenceService() {
+		return persitenceService;
+	}
+
+	public void setPersitenceService(PersistenceService persitenceService) {
+		this.persitenceService = persitenceService;
+	}
+
+}

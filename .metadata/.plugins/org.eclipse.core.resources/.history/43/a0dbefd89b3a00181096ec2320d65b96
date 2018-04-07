@@ -1,0 +1,36 @@
+package com.view.login;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.shrmfrg.entities.TestUser;
+import com.shrmfrg.persistence.PersistenceService;
+
+import javax.ejb.EJB;
+
+@Controller
+public class LoginController {
+	
+	@EJB(lookup="java:app/SrhmFrg-ejb/PersistenceService")
+	private PersistenceService persitenceService;
+	
+	
+	
+	@RequestMapping(value="/login")
+	public String toLogin(){
+		TestUser tu = persitenceService.find(TestUser.class, 1);
+		
+		System.out.print(tu.getUserName());
+		System.out.println("Hello!!! /Login" );
+		return "/login/login";
+	}
+
+	public PersistenceService getPersitenceService() {
+		return persitenceService;
+	}
+
+	public void setPersitenceService(PersistenceService persitenceService) {
+		this.persitenceService = persitenceService;
+	}
+
+}

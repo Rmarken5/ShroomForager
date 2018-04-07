@@ -1,0 +1,12 @@
+package com.shrmfrg.persistence;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceUnit;
+
+public class PersistenceServiceBase {
+	
+	@PersistenceUnit(unitName="manager")
+	private EntityManager entityManager;
+	
+
+}

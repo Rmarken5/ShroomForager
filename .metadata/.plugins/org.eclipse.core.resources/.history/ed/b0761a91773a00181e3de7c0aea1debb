@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd">
+	<entity class="com.shrmfrg.entities.TestUser" access="FIELD">
+		<table name="TEST_USER">
+			<key name="userId" type="int" column="USER_ID" >
+				<generator class="native" />
+			</key>
+			<property name = "userName" column = "USER_NAME" type = "string"/>
+		</table>
+	</entity>
+</entity-mappings>

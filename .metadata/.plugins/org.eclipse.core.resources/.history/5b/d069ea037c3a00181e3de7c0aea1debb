@@ -1,0 +1,15 @@
+package com.shrmfrg.persistence;
+
+import javax.ejb.EJB;
+
+@EJB
+public class PersistenceService extends PersistenceServiceBase {
+
+	
+	
+	public <T> T find(Class clazz, Integer id){
+		
+		return (T) this.getEntityManager().find(clazz, id);
+		
+	}
+}
